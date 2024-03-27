@@ -15,7 +15,7 @@ body {
   --bs-dark: var(--matr-navbar-bg);
   --bs-dark-rgb: var(--matr-navbar-bg-rgb);
   background-size: cover;
-  background: fixed center url("images/back.png");
+  background: fixed center url("images/back.jpg");
 }
 body .navbar {
   --bs-navbar-active-color: var(--matr-navbar-highlight-text);
