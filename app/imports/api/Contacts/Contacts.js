@@ -33,4 +33,3 @@ class ContactsCollection {
  * @type {ContactsCollection}
  */
 export const Contacts = new ContactsCollection();
-
