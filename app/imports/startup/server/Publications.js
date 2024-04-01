@@ -34,8 +34,8 @@ Meteor.publish(Contacts.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Contacts.collection.find();
   }
-  return this.
-})
+  return this.ready();
+});
 
 // alanning:roles publication
 // Recommended code to publish roles for each user.
