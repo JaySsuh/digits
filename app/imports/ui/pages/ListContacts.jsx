@@ -5,6 +5,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import Contact from '../components/Contact';
 import { Contacts } from '../../api/Contacts/Contacts';
+import { Notes } from '../../api/note/Notes';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const ListContacts = () => {
@@ -14,13 +15,15 @@ const ListContacts = () => {
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
     const subscription = Meteor.subscribe(Contacts.userPublicationName);
-    const subscription2 = 
+    const subscription2 = Meteor.subscribe(Notes.userPublicationName);
     // Determine if the subscription is ready
-    const rdy = subscription.ready();
+    const rdy = subscription.ready() && subscription2.ready();
     // Get the Notes documents
     const contactItems = Contacts.collection.find({}).fetch();
+    const noteItems = Notes.collection({}).fetch();
     return {
       contacts: contactItems,
+      notes: noteItems,
       ready: rdy,
     };
   }, []);
@@ -31,7 +34,7 @@ const ListContacts = () => {
           <Col className="text-center">
             <h2>List Contacts</h2>
           </Col>
-          <Row xs={1} md={2} lg={3} className="g-4"> {contacts.map((contact) => (<Col key={contact._id}><Contact contact={contact} /></Col>))}
+          <Row xs={1} md={2} lg={3} className="g-4"> {contacts.map((contact) => (<Col key={contact._id}><Contact contact={contact} notes={notes.filter(note => (note.contactId === contact._id))} /></Col>))}
           </Row>
         </Col>
       </Row>
