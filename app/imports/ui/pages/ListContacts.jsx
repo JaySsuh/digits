@@ -20,7 +20,8 @@ const ListContacts = () => {
     const rdy = subscription.ready() && subscription2.ready();
     // Get the Notes documents
     const contactItems = Contacts.collection.find({}).fetch();
-    const noteItems = Notes.collection({}).fetch();
+    // Get the Note documents
+    const noteItems = Notes.collection.find({}).fetch();
     return {
       contacts: contactItems,
       notes: noteItems,

@@ -4,6 +4,7 @@ import { AutoForm, ErrorsField, HiddenField, SubmitField, TextField } from 'unif
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
+import PropTypes from 'prop-types';
 import { Notes } from '../../api/note/Notes';
 
 // Create a schema to specify the structure of the data to appear in the form.
@@ -59,8 +60,9 @@ const AddNote = ({ owner, contactId }) => {
     </Container>
   );
 };
+
 AddNote.propTypes = {
   owner: PropTypes.string.isRequired,
-  
+  contactId: PropTypes.string.isRequired,
 };
 export default AddNote;
