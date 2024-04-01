@@ -1,6 +1,10 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
+<<<<<<< HEAD
 import { Contacts } from '../../api/Contacts/Contacts';
+=======
+import { Contacts } from '../../api/contact/Contacts';
+>>>>>>> contacts-collection-2
 
 /* eslint-disable no-console */
 

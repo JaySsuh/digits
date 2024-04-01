@@ -3,7 +3,11 @@ import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
+<<<<<<< HEAD
 import Contact from '../components/Contact';
+=======
+import { Contacts } from '../../api/contact/Contacts';
+>>>>>>> contacts-collection-2
 import ContactAdmin from '../components/ContactAdmin';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -16,7 +20,11 @@ const ListContactsAdmin = () => {
     const subscription = Meteor.subscribe(Contacts.adminPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
+<<<<<<< HEAD
     // Get the Stuff documents
+=======
+    // Get the Contact documents
+>>>>>>> contacts-collection-2
     const contactItems = Contacts.collection.find({}).fetch();
     return {
       contacts: contactItems,
